@@ -4,7 +4,6 @@
 			<el-tab-pane label="待审核" name="leader1">
 				<div class="text-item">案件审核</div>
 				<el-table :data="nocheck" stripe style="width: 100%">
-				
 					<el-table-column sortable prop="basicCondition.acceptedTime" label="案发时间"></el-table-column>
 					<el-table-column prop="basicCondition.caseRegisterDetails" label="案件概述"></el-table-column>
 					<el-table-column prop="policeman.policemanName" label="负责民警"></el-table-column>

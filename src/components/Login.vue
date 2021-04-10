@@ -53,7 +53,9 @@
 					if(res.code !==0) return this.$message.error('用户名或密码错误！');
 					this.$message.success('登录成功！');
 					//将返回的token保存到客户端的sessionStorage中
-					window.sessionStorage.setItem("token",res.data.token);
+					window.sessionStorage.setItem("name",res.data.data.staffName);
+					window.sessionStorage.setItem("id",res.data.data.id);
+					window.sessionStorage.setItem("dept",res.data.data.departmentId);
 					//window.sessionStorage.setItem("token",res.data.token);
 					//页面跳转 
 					this.$router.push("/welcome");

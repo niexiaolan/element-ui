@@ -1,5 +1,6 @@
 <template>
 	<div class="mainbox">
+		<el-button @click="jump()">上传案件</el-button>
 		<el-table :data="nocheck" stripe style="width: 100%">
 
 			<el-table-column prop="caseId" label="案件编号"></el-table-column>
@@ -16,15 +17,15 @@
 				</template>
 			</el-table-column>
 
-			<el-table-column label="操作" width="150">
+			<el-table-column label="操作" width="200">
 				<!-- eslint-disable -->
 				<template slot-scope="{row}">
-					<el-tooltip effect="dark" content="查看证据" placement="top" :enterable="false">
-						<el-button type="primary" icon="el-icon-view" size="mini" @click="lookevidence(row.caseId)"></el-button>
-					</el-tooltip>
-					<el-tooltip effect="dark" content="上传证据" placement="top" :enterable="false">
-						<el-button type="success" icon="el-icon-upload" size="mini" @click="dialogupload(row.caseId)"></el-button>
-					</el-tooltip>
+		
+						<el-button type="primary"  size="mini" @click="lookevidence(row.caseId)">查看证据</el-button>
+			
+	
+						<el-button type="success"  size="mini" @click="dialogupload(row.caseId)">上传证据</el-button>
+					
 				</template>
 			</el-table-column>
 			<!-- <el-table-column label="审核" width="150">
@@ -34,8 +35,6 @@
 		
 				</el-table-column> -->
 		</el-table>
-
-		</el-tabs>
 
 		<el-dialog title="证据链" :visible.sync="dialogVisible1" width="80%" :before-close="handleClose">
 			<span>
@@ -168,7 +167,9 @@
 			this.noCheck()
 		},
 		methods: {
-
+			jump(){
+				        this.$router.push('upload')
+			},
 			async noCheck() {
 				this.token = window.sessionStorage.getItem('token')
 				console.log(this.token)

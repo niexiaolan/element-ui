@@ -13,6 +13,7 @@ import Leader from '../components/task/Leader.vue'
 import Publicity from '../components/Publicity.vue'
 import Checkout from '../components/Checkout.vue'
 import Case from '../components/task/Case.vue'
+import Upload from '../components/task/upload.vue'
 
 Vue.use(VueRouter)
 
@@ -31,6 +32,10 @@ const routes = [
 		children: [{
 				path: '/welcome',
 				component: Welcome
+			},
+			{
+				path:'/upload',
+				component:Upload
 			},
 			{
 				path: '/work',

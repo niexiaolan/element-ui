@@ -1,18 +1,6 @@
 <template>
 	<div class="mainset">
-		<el-row class="elrow" :gutter="5">
-			<el-col>
-				<el-carousel  :autoplay="false" height="350px">
-					<el-carousel-item>
-						<img class="img1" src="../assets/banner4.jpg">
-					</el-carousel-item>
-					<el-carousel-item>
-						<img src="../assets/banner-1.jpg">
-						
-					</el-carousel-item>
-				</el-carousel>
-			</el-col>
-		</el-row>
+
 		<!-- 	<el-row>
 			<el-col>
 				<el-carousel height="60px" :autoplay="false" indicator-position="none">
@@ -23,48 +11,105 @@
 			</el-col>
 		</el-row> -->
 		<div class="cardcontainer">
-			<el-row :gutter="10">
-				<el-col :xs="24" :sm="8" :lg="8">
-					<div class="boxcard">
-						<div id="main" style="height:100%;width: 100%;"></div>
+			<el-row>
+				<el-col>
+					<div style="background: #FFFFFF; padding: 20px;">
+						<h4>账号：</h4>
+						<li>当前登录账号: {{this.id}}</li> 
+						<li>职工姓名: {{this.name}}</li>
+						<li>所属部门: {{this.dep}}</li>
 					</div>
 				</el-col>
-				<el-col :xs="24" :sm="8" :lg="8">
+			</el-row>
+			<h4><i class="el-icon-d-arrow-right"></i> 工作区</h4>
+			<div class="boxcard" style="height: 140px; padding-top: 50px; padding-left: 50px; padding-right: 50px;">
+				<el-row gutter="40">
+					<el-col :xs="12" :sm="6" :lg="6">
+							<router-link to="upload">
+						<el-card style="background:#4077b1 ;height: 100px; letter-spacing: 2px;">
+							<div style="height:100%;width: 100%; color: #fff ;">案件上传</div>
+							<i class="el-icon-folder-add" style="position: relative;left:150px;top: 5px;color: rgba(253, 253, 253, 0.4); font-size: 48px;"></i>
+						</el-card>
+						</router-link>
+					</el-col>
+				
+					<el-col :xs="12" :sm="6" :lg="6">
+							<router-link to="case">
+						<el-card  style="background:#c5a849 ;height: 100px; letter-spacing: 2px;">
+							<div style="height:100%;width: 100%; color: #fff ;">案件查询</div>
+							<i class="el-icon-search" style="position: relative;left:150px;top: 5px;color: rgba(253, 253, 253, 0.4); font-size: 48px;"></i>
+						</el-card>
+							</router-link>
+					</el-col>
+					<el-col :xs="12" :sm="6" :lg="6">
+							<router-link to="leader">
+						<el-card style="background:#8cbc7a ;height: 100px; letter-spacing: 2px;">
+							<div style=" color: #fff ;">案件审核 </div>
+							<i class="el-icon-document-checked" style="position: relative;left:150px;top: 5px;color: rgba(253, 253, 253, 0.4); font-size: 48px;"></i>
+								
+						</el-card>
+							</router-link>
+					</el-col>
+					<el-col :xs="12" :sm="6" :lg="6">
+						<el-card style="background:#ba7876 ;height: 100px; letter-spacing: 2px;">
+							<div style="height:100%;width: 100%; color: #fff ;">数据统计</div>
+								<i class="el-icon-s-data" style="position: relative;left:150px;top: 5px;color: rgba(253, 253, 253, 0.4); font-size: 48px;"></i>
+						</el-card>
+					</el-col>
+
+
+
+
+
+				</el-row>
+			</div>
+			<h4><i class="el-icon-d-arrow-right"></i> 数据统计</h4>
+			<el-row>
+
+				<el-col :xs="24" :sm="12" :lg="12">
 					<div class="boxcard">
 						<div id="barchar" style="height:100%;width: 100%;"></div>
 					</div>
 				</el-col>
-				<el-col :xs="24" :sm="8" :lg="8">
+				<el-col :xs="24" :sm="12" :lg="12">
 					<div class="boxcard">
 						<div id="linechar" style="height:100%;width: 100%;"></div>
 					</div>
 				</el-col>
 
+
+			</el-row>
+			<el-row>
+				<el-col :xs="24" :sm="24" :lg="24">
+					<div class="boxcard">
+						<div id="main" style="height:100%;width: 100%;"></div>
+					</div>
+				</el-col>
 			</el-row>
 			<el-row>
 				<el-col style="height: 230px; background-color: #FFFFFF;">
 					<div class="titlebox">
-						<a  target="_blank" href="http://123.207.23.242:5002/WeBASE-Front/?#/home" >
-						
-						
-						<div class="title">
-							<div class="p-title">区块链数据统计</div>
-							<div class="p-date">(截至2020年12月29日)</div>
-							<el-row >
-								<el-col span="8" class="colstyle">
-									<div class="p1"><span class="number">34765</span>件</div>
-									<div class="p2" >累计上链文书</div>
-								</el-col>
-								<el-col span="8">
-									<div class="p1"><span class="number">587342</span>条</div>
-									<div class="p2">累计上链物证</div>
-								</el-col>
-								<el-col span="8">
-									<div class="p1"><span class="number">19834</span>G</div>
-									<div class="p2">累计区块数据</div>
-								</el-col>
-							</el-row>
-						</div>
+						<a target="_blank" href="http://123.207.23.242:5002/WeBASE-Front/?#/home">
+
+
+							<div class="title">
+								<div class="p-title">区块链数据统计</div>
+								<div class="p-date">(截至2020年12月29日)</div>
+								<el-row>
+									<el-col span="8" class="colstyle">
+										<div class="p1"><span class="number">34765</span>件</div>
+										<div class="p2">累计上链文书</div>
+									</el-col>
+									<el-col span="8">
+										<div class="p1"><span class="number">587342</span>条</div>
+										<div class="p2">累计上链物证</div>
+									</el-col>
+									<el-col span="8">
+										<div class="p1"><span class="number">19834</span>G</div>
+										<div class="p2">累计区块数据</div>
+									</el-col>
+								</el-row>
+							</div>
 						</a>
 					</div>
 				</el-col>
@@ -81,17 +126,39 @@
 	//require('echarts/theme/macarons') // echarts theme
 	export default {
 		data() {
-			return {};
+			return {
+				name:'',
+				id:'',
+				dep:''
+			};
 		},
-		
-		created() {
 
+		created() {
+			this.getInfo()
+		
 		},
 		mounted() {
+		
 			this.useEchart()
 		},
 		methods: {
-			
+			getInfo(){
+				this.name = window.sessionStorage.getItem('name');
+				this.id = window.sessionStorage.getItem('id');
+				if(window.sessionStorage.getItem('dept') == 101){
+						this.dep = '公安局'
+				}
+				if(window.sessionStorage.getItem('dept') == 102){
+						this.dep = '检察院'
+				}
+				if(window.sessionStorage.getItem('dept') == 103){
+						this.dep = '法院'
+				}
+				if(window.sessionStorage.getItem('dept') == 104){
+						this.dep = '司法局'
+				}
+				
+			},
 			useEchart() {
 				//init
 				var myChart1 = echarts.init(document.getElementById('barchar'));
@@ -312,10 +379,18 @@
 	}
 </script>
 <style scoped>
+	h4 {
+		color: #003366;
+		margin: 0;
+		margin-bottom: 10px;
+	}
+
 	.mainset {
 		height: 100%;
 		width: 100%;
+		margin-top: 20px;
 	}
+
 	.el-row {
 		margin-left: 0px;
 		margin-bottom: 20px;
@@ -325,29 +400,28 @@
 		}
 	}
 
-
-	.img {
-		height:100%;
-		width: auto;
-		position: relative;
+	.text {
+		font-size: 14px;
 	}
 
-	.img1 {
-		height: 100%;
-		width: 100%;
-		position: relative;
+	.item {
+		padding: 18px 0;
 	}
 
-		.cardcontainer {
-			width: auto;
-			margin: auto;
-			padding: 0 15px;
-		}
+	el-card {
+		cursor: pointer;
+
+	}
+
+
+
+
 
 	.boxcard {
-		height: 250px;
+		height: 300px;
 		background-color: #FFFFFF;
-		cursor: pointer
+
+		padding: 20px;
 	}
 
 	.titlebox {
@@ -367,18 +441,22 @@
 		font-weight: bold;
 		line-height: 40px;
 	}
+
 	.colstyle {
 		text-align: center;
 	}
+
 	.number {
-		    color: #df951f;
-		    font-size: 30px;
-		    font-weight: bold;
-		    margin-right: 5px;
+		color: #df951f;
+		font-size: 30px;
+		font-weight: bold;
+		margin-right: 5px;
 	}
-	.p2{
+
+	.p2 {
 		color: #666666;
 	}
+
 	.p1 {
 		margin-top: 25px;
 		margin-bottom: 10px;
