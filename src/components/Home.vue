@@ -95,7 +95,7 @@ export default {
   methods: {
     async logout() {
       window.sessionStorage.clear();
-      const { data: res1 } = await this.$http.get("/api1/login/logout");
+      const { data: res1 } = await this.$http.get("/login/logout");
       console.log(res1);
       this.$router.push("/login");
     },

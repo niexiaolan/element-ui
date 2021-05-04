@@ -18,7 +18,7 @@ Vue.prototype.$http = axios
 
 
 //请求根路径
-//axios.defaults.baseURL = 'http://isihon.cn/sc'
+axios.defaults.baseURL = 'http://39.108.13.116:8082'
 
 new Vue({
   router,

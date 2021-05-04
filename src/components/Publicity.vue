@@ -99,7 +99,7 @@ export default {
   },
   methods: {
     async getMessData() {
-      const { data: res } = await this.$http.post("/api1/message/getList", {
+      const { data: res } = await this.$http.post("/message/getList", {
         end: -1,
         start: 1
       });
@@ -108,12 +108,22 @@ export default {
     deleteRow(index, rows) {
       rows.splice(index, 1);
     },
-    async getTableData() {
-      const { data: res } = await this.$http.get(
-        "/api7/tpl/cross_origin.php?interface=getTopNBlockInfo&protocol=CORS"
-      );
-      console.log(res);
-      this.tableData = res.data;
+    getTableData() {
+		
+    this.$http.jsonp('https://tpl.bjinternetcourt.gov.cn/tpl/cross_origin.php?interface=getTopNBlockInfo&protocol=CORS', {
+    params: {},
+    jsonp: 'handleCallback'
+}).then((res) => {
+    console.log(res); 
+	 this.tableData = res.data;
+})
+    
+
+    //   const { data: res } = await this.$http.get(
+    //     "/api7/tpl/cross_origin.php?interface=getTopNBlockInfo&protocol=CORS"
+    //   );
+    //   console.log(res);
+    //   this.tableData = res.data;
     }
   },
   data() {

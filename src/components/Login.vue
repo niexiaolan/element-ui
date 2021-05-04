@@ -47,7 +47,7 @@
 				this.$refs.loginFormRef.validate(async valid =>{
 					if (!valid) return;
 					/* 配置请求路径，对接口 */
-					const {data: res} = await this.$http.post('/api1/login/logins',this.loginForm)
+					const {data: res} = await this.$http.post('/login/logins',this.loginForm)
 					console.log(res,"www");
 					/* 配置状态码 */
 					if(res.code !==0) return this.$message.error('用户名或密码错误！');

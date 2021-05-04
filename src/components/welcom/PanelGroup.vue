@@ -78,7 +78,7 @@ export default {
   },
   methods: {
     async count(){
-      const {data : res} = await this.$http.get('/api1/statistics/pick')
+      const {data : res} = await this.$http.get('/statistics/pick')
       console.log('res :>> ', res);
       this.countData = res.data
 

@@ -400,7 +400,7 @@
           style="margin: 30px;"
           class="upload-demo"
           ref="upload"
-          action="/api1/evidence/postevidence"
+          action="/evidence/postevidence"
           :on-preview="handlePreview"
           :on-remove="handleRemove"
           :file-list="fileList"
@@ -542,7 +542,7 @@ export default {
       // console.log(this.token)
       /* var formData = new FormData();
 				formData.append("token",window.sessionStorage.getItem('token')); */
-      const { data: res } = await this.$http.post("/api1/cases/getcase");
+      const { data: res } = await this.$http.post("/cases/getcase");
       if (res.code !== 0) return this.$message.error("获取数据失败！");
       this.nocheck = res.data;
       if (this.nocheck) {
@@ -559,7 +559,7 @@ export default {
       }).then(async action => {
         if (action === "confirm") {
           const { data: res } = await this.$http.put(
-            "/api1/examine/passEXamine/" + id
+            "/examine/passEXamine/" + id
           );
           this.lookevidence(caseId);
           return this.$message.success("审核通过");
@@ -575,7 +575,7 @@ export default {
     async noPassSubmit() {
       const { data: res } = await this.$http({
         method: "put",
-        url: "/api1/examine/RefuseExamine",
+        url: "/examine/RefuseExamine",
         data: this.noPassForm
       });
       this.dialogVisibleNoPass = false;
@@ -585,7 +585,7 @@ export default {
     // 创建案件
     async submitCaseForm() {
       const { data: res } = await this.$http.post(
-        "/api1/cases/addCase",
+        "/cases/addCase",
         this.newCaseForm
       );
       this.creatCaseDia = false;
@@ -613,7 +613,7 @@ export default {
       console.log(id);
       this.dialogVisible1 = true;
       const { data: res } = await this.$http.post(
-        "/api1/evidence/getevidence",
+        "/evidence/getevidence",
         {
           token: this.token,
           caseId: id
@@ -637,7 +637,7 @@ export default {
       this.dialogVisibleinfo = true;
       this.imgurl = "";
       // this.loading = true;
-      const { data: res } = await this.$http.get("/api1/evidence/getone/" + id);
+      const { data: res } = await this.$http.get("/evidence/getone/" + id);
       if (res.code !== 0) return this.$message.error("加载失败，请刷新后重试");
       this.imgurl = "data:image/jpeg;base64," + res.data.evidenceUrl;
     },

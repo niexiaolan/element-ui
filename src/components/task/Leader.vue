@@ -77,7 +77,7 @@
 			async noCheck() {
 				const {
 					data: res
-				} = await this.$http.get('/api1/examine/fenjingjuzhang/writtenDecisionOfCase_filing/listNoCheck')
+				} = await this.$http.get('/examine/fenjingjuzhang/writtenDecisionOfCase_filing/listNoCheck')
 				console.log(res)
 				if (res.code !== 0) return this.$message.error('获取未审核数据失败！')
 				this.nocheck = res.data

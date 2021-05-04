@@ -119,14 +119,14 @@
 	},
 	methods: {
 		async queryReporterList(){
-			const { data: res} = await this.$http.get('/api1/queryReporterList')
+			const { data: res} = await this.$http.get('/queryReporterList')
 			if(res.code !== 0) return this.$message.error('获取报警记录失败！')
 			this.reporterlist = res.data
 			this.totalreporter = res.data.length
 			console.log(res)
 		},
 		async recordList(){
-			const { data: res} = await this.$http.get('/api1/queryReportRecordList')
+			const { data: res} = await this.$http.get('/queryReportRecordList')
 			if(res.code !== 0) return this.$message.error('获取报警记录失败！')
 			this.recordlist = res.reportRecords
 			this.toltalrecord = res.reportRecords.length
